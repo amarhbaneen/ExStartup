@@ -1,0 +1,21 @@
+2024-12-29 15:31:47.589482+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select * from Users [42104-224]
+2024-12-29 15:31:52.522636+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select * from Users [42104-224]
+2024-12-29 15:31:53.317984+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select * from Users [42104-224]
+2024-12-29 15:31:54.590260+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select * from Users [42104-224]
+2024-12-29 15:44:09.678218+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.id,u1_0.firstname,u1_0.password,u1_0.role,u1_0.surname,u1_0.username from [*]user u1_0 where u1_0.id=?"; expected "identifier"; SQL statement:
+select u1_0.id,u1_0.firstname,u1_0.password,u1_0.role,u1_0.surname,u1_0.username from user u1_0 where u1_0.id=? [42001-224]
+2024-12-29 15:44:28.078138+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.id,u1_0.firstname,u1_0.password,u1_0.role,u1_0.surname,u1_0.username from [*]user u1_0 where u1_0.id=?"; expected "identifier"; SQL statement:
+select u1_0.id,u1_0.firstname,u1_0.password,u1_0.role,u1_0.surname,u1_0.username from user u1_0 where u1_0.id=? [42001-224]
+2024-12-29 15:46:10.827919+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "user" not found (this database is empty); SQL statement:
+select u1_0.id,u1_0.firstname,u1_0.password,u1_0.role,u1_0.surname,u1_0.username from "user" u1_0 where u1_0.id=? [42104-224]
