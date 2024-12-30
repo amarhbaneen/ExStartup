@@ -1,13 +1,15 @@
 package com.example.StartupExercise.User;
 
 
+import com.example.StartupExercise.UserMetricsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +23,8 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserMetricsService userMetricsService;
 
     /**
      *
@@ -40,6 +44,7 @@ public class UserController {
     )
     public ResponseEntity<User> createUser(@RequestBody User User){
         User CreatedUser =  userService.createUser(User);
+        userMetricsService.incrementUserCreated();
         return  ResponseEntity.ok(CreatedUser);
 
     }
@@ -102,10 +107,56 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User user) {
         try {
             User updatedUser = userService.updateUser(id, user);
+            userMetricsService.incrementUserUpdated();
             return ResponseEntity.ok(updatedUser);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+    /**
+     * delete user using the ID
+     * @param id the ID of the user to be deleted
+     */
+    @DeleteMapping("/delete/{id}")
+    @Operation(
+            summary = "Delete user by ID",
+            description = "Delete an existing user based on the provided ID ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "User deleted successfully"),
+                    @ApiResponse(responseCode = "404", description = "User not found"),
+            }
+    )
+    public ResponseEntity<String> deleteUser(@PathVariable Integer id) {
+        try {
+            userService.deleteUser(id);
+            userMetricsService.incrementUserDeleted();
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("User with ID " + id + " does not exist.");
+        }
+    }
+
+
+    /**
+     * Endpoint to update the password of the currently authenticated user.
+     * Only the user themselves can update their password.
+     *
+     * @param username The username of the user whose password is being updated.
+     * @param newPassword The new password.
+     * @return A success message.
+     */
+    @PutMapping("/updatePassword/{username}")
+    public ResponseEntity updatePassword(@PathVariable String username, @RequestBody String newPassword) {
+        String authenticatedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!authenticatedUsername.equals(username)) {
+            return ResponseEntity.badRequest().body("You are not authorized to update the password for another user");
+        }
+        User user = userService.getUserByUserName(authenticatedUsername);
+        user.setPassword(newPassword);  // Update the password
+        userService.updateUser(user.getId(), user);  // Save the updated user
+        return ResponseEntity.ok().body("Password updated successfully!");
+
     }
 
 }

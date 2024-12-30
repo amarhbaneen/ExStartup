@@ -76,4 +76,17 @@ public class UserService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
+
+
+    /**
+     * Delete user using the ID
+     * @param ID the ID of the user to be deleted
+     * @throws IllegalArgumentException if the user does not exist
+     */
+    public void deleteUser(Integer ID) {
+        if (!userRepository.existsById(ID)) {
+            throw new IllegalArgumentException("User with ID " + ID + " does not exist.");
+        }
+        userRepository.deleteById(ID);
+    }
 }
