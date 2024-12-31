@@ -14,6 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+
 /**
  * Spring Security configuration class to enable JWT authentication and method-level security.
  */
@@ -30,7 +31,8 @@ public class SecurityConfig  {
         http.authorizeHttpRequests(request -> {
             request.requestMatchers(
                     "/Auth/login",
-                    "/actuator/**","/swagger-ui/**").permitAll();
+                    "/actuator/**","/swagger-ui/**","/api-docs/**"
+            ).permitAll();
             request.anyRequest().authenticated();
         });
         http.addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);

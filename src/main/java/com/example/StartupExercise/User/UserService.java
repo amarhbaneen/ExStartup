@@ -59,9 +59,6 @@ public class UserService {
                 user -> {
                     user.setFirstName(UpdatedUser.getFirstName());
                     user.setSurName(UpdatedUser.getSurName());
-                    user.setUsername(UpdatedUser.getUsername());
-                    user.setPassword(UpdatedUser.getPassword());
-                    user.setRole(UpdatedUser.getRole());
                     return userRepository.save(user);
                 }
         ).orElseThrow(

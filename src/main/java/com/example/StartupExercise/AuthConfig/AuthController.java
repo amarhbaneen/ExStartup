@@ -2,6 +2,11 @@ package com.example.StartupExercise.AuthConfig;
 
 import com.example.StartupExercise.User.User;
 import com.example.StartupExercise.User.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,13 +22,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @Autowired
     private UserService userService;
-
+    /**
+     * Login endpoint for user authentication.
+     *
+     * @param loginRequest the login request containing username and password.
+     * @return a JWT token if authentication is successful.
+     * @throws RuntimeException if the username or password is invalid.
+     */
+    @Operation(summary = "Authenticate user and generate JWT token", description = "Authenticates a user using their username and password, and returns a JWT token.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Login successful", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))),
+            @ApiResponse(responseCode = "401", description = "Invalid username or password", content = @Content)
+    })
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest) {
-        // Get the user from the database
         User user = userService.getUserByUserName(loginRequest.getUsername());
         if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
-            return JwtUtil.generateToken(user.getUsername());  // Generate JWT token
+            return JwtUtil.generateToken(user.getUsername());
         }
         throw new RuntimeException("Invalid username or password");
     }

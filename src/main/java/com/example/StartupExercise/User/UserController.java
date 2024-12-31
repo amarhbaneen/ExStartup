@@ -136,8 +136,6 @@ public class UserController {
                     .body("User with ID " + id + " does not exist.");
         }
     }
-
-
     /**
      * Endpoint to update the password of the currently authenticated user.
      * Only the user themselves can update their password.
