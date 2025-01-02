@@ -8,6 +8,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,11 +37,13 @@ public class AuthController {
             @ApiResponse(responseCode = "401", description = "Invalid username or password", content = @Content)
     })
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
         User user = userService.getUserByUserName(loginRequest.getUsername());
         if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
-            return JwtUtil.generateToken(user.getUsername());
+
+            return ResponseEntity.ok(JwtUtil.generateToken(user.getUsername()));
+
         }
-        throw new RuntimeException("Invalid username or password");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
     }
 }

@@ -31,6 +31,18 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    public User(){}
+
+    public User(Integer id,String  username, String password, String firstName, String surName,Role role ) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.surName = surName;
+        this.role = role;
+
+    }
+
     public Integer getId() {
         return id;
     }
