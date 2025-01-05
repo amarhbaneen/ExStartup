@@ -10,6 +10,8 @@ import java.util.Date;
  */
 
 public class JwtUtil {
+
+    // The JWT_SECRET should not be stored directly in the codebase. Instead, it should be securely managed in a database or a cloud-based secrets management service.
     private static final String JWT_SECRET = "d43cd4c0caac49dafdd9225cd64fe74698a72090d1d1587663d798b4f1de1cf79818fd37ff778c98f9c79b1944805324697a7eb4c4eb0e3be9886c3c96c7b5e7bbeb0e151b8e43af97ef977bbdfc3aa5644b205a3221ba77e58a1d41a812b94621761f714b546352b853c5b0a16718799d2efa2b4ae0b6dc274690d67f8d82771b484e4c7b61ba810438be4783dc43070629fd8822f497e7ec81cb334b3b734ee19170202723a49262f4e15068014e7e09d0d4b9097d34abc226c5fd2626d3a0ad6341c48bcc9fc6dfdbf476b769a6c5cc4b963ab42d277c218130da4154ae96c9bab8fa1a389ba662e48dc541574dda049590a962bf3af408217175eea2baa3";
 
     /**

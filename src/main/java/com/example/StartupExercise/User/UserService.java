@@ -1,4 +1,7 @@
 package com.example.StartupExercise.User;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +35,7 @@ public class UserService {
      * @return the user object if it found
      */
 
+    @Cacheable(value = "User", key = "#userName")
     public User getUserByUserName(String userName){
         return userRepository.findByUsername(userName);
     }
@@ -41,6 +45,8 @@ public class UserService {
      * @param userId the Integer value represent the ID
      * @return An Optional containing the user object if it found
      */
+
+    @Cacheable(value = "User", key = "#id")
     public Optional<User> getUserById(Integer userId){
         return userRepository.findById(userId);
     }
@@ -54,6 +60,7 @@ public class UserService {
      *
      */
 
+    @CachePut(value = "User", key = "#id")
     public User updateUser(Integer ID , User UpdatedUser){
         return userRepository.findById(ID).map(
                 user -> {
@@ -70,6 +77,7 @@ public class UserService {
      *
      * @return a list of all users.
      */
+   @Cacheable(value = "users",key = "#id")
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
@@ -80,6 +88,7 @@ public class UserService {
      * @param ID the ID of the user to be deleted
      * @throws IllegalArgumentException if the user does not exist
      */
+    @CacheEvict(value = "User" , key = "#id")
     public void deleteUser(Integer ID) {
         if (!userRepository.existsById(ID)) {
             throw new IllegalArgumentException("User with ID " + ID + " does not exist.");

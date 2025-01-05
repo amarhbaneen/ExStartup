@@ -1,0 +1,8 @@
+<infinispan>
+    <cache-container default-cache="default">
+        <local-cache name="default">
+            <locking isolation="READ_COMMITTED"/>
+            <expiration lifespan="3600000"/>
+        </local-cache>
+    </cache-container>
+</infinispan>
