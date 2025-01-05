@@ -38,7 +38,7 @@ public class AuthController {
             @ApiResponse(responseCode = "401", description = "Invalid username or password", content = @Content)
     })
     @PostMapping("/login")
-    @Cacheable(value = "Response" , key = "#id")
+    @Cacheable(value = "Response" , key = "#loginRequest")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
         User user = userService.getUserByUserName(loginRequest.getUsername());
         if (user != null && user.getPassword().equals(loginRequest.getPassword())) {

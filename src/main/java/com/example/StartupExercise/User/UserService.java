@@ -31,7 +31,7 @@ public class UserService {
     /**
      * Retrieves a User by its UserName
      *
-     * @param userName the String value represent the username
+     * @param userName the String value represents the username
      * @return the user object if it found
      */
 
@@ -42,11 +42,11 @@ public class UserService {
     /**
      * Retrieves a User by its ID
      *
-     * @param userId the Integer value represent the ID
+     * @param userId the Integer value represents the ID
      * @return An Optional containing the user object if it found
      */
 
-    @Cacheable(value = "User", key = "#id")
+    @Cacheable(value = "User", key = "#userId")
     public Optional<User> getUserById(Integer userId){
         return userRepository.findById(userId);
     }
@@ -60,7 +60,7 @@ public class UserService {
      *
      */
 
-    @CachePut(value = "User", key = "#id")
+    @CachePut(value = "User", key = "#ID")
     public User updateUser(Integer ID , User UpdatedUser){
         return userRepository.findById(ID).map(
                 user -> {
@@ -77,7 +77,7 @@ public class UserService {
      *
      * @return a list of all users.
      */
-   @Cacheable(value = "users",key = "#id")
+   @Cacheable(value = "users",key = "'all_users'")
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
@@ -88,7 +88,7 @@ public class UserService {
      * @param ID the ID of the user to be deleted
      * @throws IllegalArgumentException if the user does not exist
      */
-    @CacheEvict(value = "User" , key = "#id")
+    @CacheEvict(value = "User" , key = "#ID")
     public void deleteUser(Integer ID) {
         if (!userRepository.existsById(ID)) {
             throw new IllegalArgumentException("User with ID " + ID + " does not exist.");

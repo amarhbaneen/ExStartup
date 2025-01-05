@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/infinispan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/db.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/StartupExerciseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/StartupExerciseApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/StartupExercise/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/StartupExercise/AuthControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/StartupExercise/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/StartupExercise/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/StartupExerciseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/StartupExerciseApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,11 +174,24 @@
       <workItem from="1736076917417" duration="2424000" />
       <workItem from="1736081506277" duration="94000" />
       <workItem from="1736081617742" duration="38000" />
-      <workItem from="1736081669121" duration="1702000" />
+      <workItem from="1736081669121" duration="2105000" />
     </task>
+    <task id="LOCAL-00001" summary="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger">
+      <option name="closed" value="true" />
+      <created>1736083454097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736083454097</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger" />
   </component>
 </project>
