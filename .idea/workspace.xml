@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger">
+    <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="added the whole JWT auth in both of Login and Update password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/StartupExerciseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/StartupExerciseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,34 +28,60 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;amarhbaneen&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/amarhbaneen/ExStartup&quot;,
+    &quot;accountId&quot;: &quot;f8734d93-0c5e-4a30-a753-60427eed1604&quot;
+  }
+}</component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests /&gt;" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2qt8mz9rRtcHm0RbWZokwPErJBz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JUnit.AuthControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StartupExercise in StartupExercise.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StartupExerciseApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.StartupExerciseApplication.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amar/Desktop/StartupExercise/data/db.mv.db&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/OneDrive/Desktop/ExStartup/data/db.mv.db&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -69,10 +94,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.StartupExercise.AuthConfig" />
       <recent name="com.example.StartupExercise.User" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.StartupExercise.AuthConfig" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.StartupExercise in StartupExercise">
+  <component name="RunManager" selected="Spring Boot.StartupExerciseApplication">
     <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StartupExercise" />
       <extension name="coverage">
@@ -88,38 +117,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthControllerTest.testLogin_Failure_InvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StartupExercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.StartupExercise.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.StartupExercise" />
-      <option name="MAIN_CLASS_NAME" value="com.example.StartupExercise.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testLogin_Failure_InvalidCredentials" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthControllerTest.testLogin_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StartupExercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.StartupExercise.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.StartupExercise" />
-      <option name="MAIN_CLASS_NAME" value="com.example.StartupExercise.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testLogin_Success" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StartupExercise in StartupExercise" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StartupExercise" />
       <option name="TEST_OBJECT" value="directory" />
@@ -128,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.example.StartupExercise in StartupExercise" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StartupExerciseApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StartupExercise" />
       <extension name="coverage">
         <pattern>
@@ -137,7 +134,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.StartupExercise" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="com.example.StartupExercise.StartupExerciseApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StartupExercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.StartupExercise.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.StartupExercise" />
+      <option name="MAIN_CLASS_NAME" value="com.example.StartupExercise.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,14 +165,24 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.StartupExercise in StartupExercise" />
-        <item itemvalue="JUnit.AuthControllerTest.testLogin_Success" />
         <item itemvalue="JUnit.AuthControllerTest" />
-        <item itemvalue="JUnit.AuthControllerTest.testLogin_Failure_InvalidCredentials" />
-        <item itemvalue="JUnit.com.example.StartupExercise in StartupExercise" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.StartupExerciseApplicationTests" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Physical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="" />
@@ -169,29 +192,12 @@
       <updated>1735470676905</updated>
       <workItem from="1735470677914" duration="4518000" />
       <workItem from="1735478540860" duration="3074000" />
-      <workItem from="1735816223237" duration="5473000" />
-      <workItem from="1735844273539" duration="1804000" />
-      <workItem from="1736076917417" duration="2424000" />
-      <workItem from="1736081506277" duration="94000" />
-      <workItem from="1736081617742" duration="38000" />
-      <workItem from="1736081669121" duration="2105000" />
+      <workItem from="1735545606306" duration="16584000" />
+      <workItem from="1735734015863" duration="1568000" />
     </task>
-    <task id="LOCAL-00001" summary="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger">
-      <option name="closed" value="true" />
-      <created>1736083454097</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1736083454097</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger" />
   </component>
 </project>
