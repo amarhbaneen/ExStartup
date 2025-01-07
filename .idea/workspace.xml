@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="added the whole JWT auth in both of Login and Update password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/AuthConfig/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +193,7 @@
       <workItem from="1735478540860" duration="3074000" />
       <workItem from="1735545606306" duration="16584000" />
       <workItem from="1735734015863" duration="1568000" />
+      <workItem from="1736241358913" duration="9403000" />
     </task>
     <servers />
   </component>
