@@ -4,6 +4,7 @@ package com.example.StartupExercise.User;
 import com.example.StartupExercise.UserMetricsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,20 +20,16 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/users")
 @Tag(name = "User Management", description = "Operations for managing users in the system")
-
 public class UserController {
     @Autowired
     private UserService userService;
     @Autowired
     private UserMetricsService userMetricsService;
-
     /**
-     *
      *   Creates a new User.
      *   @param User The User object to be created.
      *   @return The created User object in a ResponseEntity.
      */
-
     @PostMapping
     @Operation(
             summary = "Create a new user",

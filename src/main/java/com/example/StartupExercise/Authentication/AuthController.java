@@ -1,4 +1,4 @@
-package com.example.StartupExercise.AuthConfig;
+package com.example.StartupExercise.Authentication;
 
 import com.example.StartupExercise.User.User;
 import com.example.StartupExercise.User.UserService;
