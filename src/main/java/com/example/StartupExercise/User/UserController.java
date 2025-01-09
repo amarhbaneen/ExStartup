@@ -4,13 +4,12 @@ package com.example.StartupExercise.User;
 import com.example.StartupExercise.UserMetricsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -144,16 +143,13 @@ public class UserController {
      */
 
     @PutMapping("/updatePassword/{username}")
-    public ResponseEntity updatePassword(@Valid @PathVariable String username,@Valid @RequestBody String newPassword) {
-        String authenticatedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
-        if (!authenticatedUsername.equals(username)) {
-            return ResponseEntity.badRequest().body("You are not authorized to update the password for another user");
-        }
-        User user = userService.getUserByUserName(authenticatedUsername);
-        user.setPassword(newPassword);  // Update the password
-        userService.updateUser(user.getId(), user);  // Save the updated user
+    @PreAuthorize("#username == authentication.name")
+    public ResponseEntity<?> updatePassword(@Valid @PathVariable String username, @Valid @RequestBody String newPassword) {
+        User user = userService.getUserByUserName(username);
+        user.setPassword(newPassword);
+        userService.updateUser(user.getId(), user);
         return ResponseEntity.ok().body("Password updated successfully!");
-
     }
+
 
 }
