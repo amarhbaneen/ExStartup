@@ -16,13 +16,12 @@ public class JwtUtil {
 
     /**
      * Generates a JWT token for the given username.
+     *
      * @param username The username to be included in the token.
      * @return The generated JWT token as a String.
      */
     public static String generateToken(String username) {
-        return Jwts.builder().setSubject(username).setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 *60*60)).
-                signWith(SignatureAlgorithm.HS256,JWT_SECRET).compact();
+        return Jwts.builder().setSubject(username).setIssuedAt(new Date()).setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)).signWith(SignatureAlgorithm.HS256, JWT_SECRET).compact();
     }
 
     /**
@@ -32,11 +31,9 @@ public class JwtUtil {
      * @return The expiration date of the token.
      */
     public static Date extractExpiration(String token) {
-        return Jwts.parser()
-                .setSigningKey(JWT_SECRET)  // Set the secret key for verification
+        return Jwts.parser().setSigningKey(JWT_SECRET)  // Set the secret key for verification
                 .parseClaimsJws(token)  // Parse the JWT token
-                .getBody()
-                .getExpiration();  // Return the expiration date from the token
+                .getBody().getExpiration();  // Return the expiration date from the token
     }
 
     /**
@@ -56,11 +53,9 @@ public class JwtUtil {
      * @return The username extracted from the token.
      */
     public static String extractUsername(String token) {
-        return Jwts.parser()
-                .setSigningKey(JWT_SECRET)  // Set the secret key for verification
+        return Jwts.parser().setSigningKey(JWT_SECRET)  // Set the secret key for verification
                 .parseClaimsJws(token)  // Parse the JWT token
-                .getBody()
-                .getSubject();  // Return the subject (username) from the token
+                .getBody().getSubject();  // Return the subject (username) from the token
     }
 
     /**

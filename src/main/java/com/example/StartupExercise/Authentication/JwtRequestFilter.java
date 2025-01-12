@@ -18,7 +18,7 @@ import java.util.Collections;
  * It sets the user authentication if the token is valid.
  */
 
-public class JwtRequestFilter  extends OncePerRequestFilter {
+public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
 
     /**
@@ -30,8 +30,7 @@ public class JwtRequestFilter  extends OncePerRequestFilter {
      * @param chain    The filter chain.
      * @throws ServletException If the filter encounters a servlet-specific error.
      * @throws IOException      If an I/O error occurs.
-     */
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+     */ protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
         String jwtToken = null;

@@ -1,4 +1,5 @@
 package com.example.StartupExercise.User;
+
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -21,11 +22,12 @@ public class UserService {
 
     /**
      * create a new User
+     *
      * @param newUser the new user object to be created
      * @return the created user object
      */
-    public User createUser(User newUser){
-        return  userRepository.save(newUser);
+    public User createUser(User newUser) {
+        return userRepository.save(newUser);
     }
 
     /**
@@ -36,9 +38,10 @@ public class UserService {
      */
 
     @Cacheable(value = "User", key = "#userName")
-    public User getUserByUserName(String userName){
+    public User getUserByUserName(String userName) {
         return userRepository.findByUsername(userName);
     }
+
     /**
      * Retrieves a User by its ID
      *
@@ -47,48 +50,46 @@ public class UserService {
      */
 
     @Cacheable(value = "User", key = "#userId")
-    public Optional<User> getUserById(Integer userId){
+    public Optional<User> getUserById(Integer userId) {
         return userRepository.findById(userId);
     }
 
     /**
      * Updates an exist user
-     * @param ID the ID of the user to update
+     *
+     * @param ID          the ID of the user to update
      * @param UpdatedUser the updated user object
      * @return the updated user object
      * @throws RuntimeException if the user is not found
-     *
      */
 
     @CachePut(value = "User", key = "#ID")
-    public User updateUser(Integer ID , User UpdatedUser){
-        return userRepository.findById(ID).map(
-                user -> {
-                    user.setFirstName(UpdatedUser.getFirstName());
-                    user.setSurName(UpdatedUser.getSurName());
-                    return userRepository.save(user);
-                }
-        ).orElseThrow(
-                () -> new RuntimeException("User not found  with ID :" + ID)
-        );
+    public User updateUser(Integer ID, User UpdatedUser) {
+        return userRepository.findById(ID).map(user -> {
+            user.setFirstName(UpdatedUser.getFirstName());
+            user.setSurName(UpdatedUser.getSurName());
+            return userRepository.save(user);
+        }).orElseThrow(() -> new RuntimeException("User not found  with ID :" + ID));
     }
+
     /**
      * Retrieves all users from the database.
      *
      * @return a list of all users.
      */
-   @Cacheable(value = "users",key = "'all_users'")
-    public List<User> getAllUsers(){
+    @Cacheable(value = "users", key = "'all_users'")
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
 
     /**
      * Delete user using the ID
+     *
      * @param ID the ID of the user to be deleted
      * @throws IllegalArgumentException if the user does not exist
      */
-    @CacheEvict(value = "User" , key = "#ID")
+    @CacheEvict(value = "User", key = "#ID")
     public void deleteUser(Integer ID) {
         if (!userRepository.existsById(ID)) {
             throw new IllegalArgumentException("User with ID " + ID + " does not exist.");

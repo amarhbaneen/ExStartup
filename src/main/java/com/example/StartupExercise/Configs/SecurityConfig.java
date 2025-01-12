@@ -13,6 +13,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -20,8 +21,7 @@ import java.util.Arrays;
 
 /**
  * Spring Security configuration class to enable JWT authentication and method-level security.
- */
-public class SecurityConfig  {
+ */ public class SecurityConfig {
     @Bean
     public JwtRequestFilter jwtRequestFilter() {
         return new JwtRequestFilter();  // Instantiate the filter bean
@@ -32,10 +32,7 @@ public class SecurityConfig  {
         http.csrf(AbstractHttpConfigurer::disable);
         http.requiresChannel(c -> c.requestMatchers("/actuator/**").requiresInsecure());
         http.authorizeHttpRequests(request -> {
-            request.requestMatchers(
-                    "/Auth/login",
-                    "/actuator/**","/swagger-ui/**","/api-docs/**"
-            ).permitAll();
+            request.requestMatchers("/Auth/login", "/actuator/**", "/swagger-ui/**", "/api-docs/**" ).permitAll();
             request.anyRequest().authenticated();
         });
         http.addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -45,9 +42,9 @@ public class SecurityConfig  {
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:4200"));  // Your Angular frontend URL
+        corsConfig.setAllowedOrigins(List.of("http://localhost:4200"));  // Your Angular frontend URL
         corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));  // Allowed HTTP methods
-        corsConfig.setAllowedHeaders(Arrays.asList("*"));  // Allow all headers
+        corsConfig.setAllowedHeaders(List.of("*"));  // Allow all headers
         corsConfig.setAllowCredentials(true);  // Allow credentials like cookies
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
