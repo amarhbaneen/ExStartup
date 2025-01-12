@@ -120,4 +120,10 @@ public class UserController {
         userService.updateUser(user.getId(), user);
         return ResponseEntity.ok().body("Password updated successfully!");
     }
+    @GetMapping("/getByUserName/{username}")
+    public ResponseEntity<User> getbyUserName (@PathVariable String username){
+        Optional<User> user  = Optional.ofNullable(userService.getUserByUserName(username));
+        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }
