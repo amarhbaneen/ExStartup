@@ -1,4 +1,4 @@
-package com.example.StartupExercise.AuthConfig;
+package com.example.StartupExercise.Authentication;
 
 import com.example.StartupExercise.User.User;
 import com.example.StartupExercise.User.UserService;
@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -39,12 +40,10 @@ public class AuthController {
     })
     @PostMapping("/login")
     @Cacheable(value = "Response" , key = "#loginRequest")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<String> login(@Valid @RequestBody LoginRequest loginRequest) {
         User user = userService.getUserByUserName(loginRequest.getUsername());
         if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
-
             return ResponseEntity.ok(JwtUtil.generateToken(user.getUsername()));
-
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
     }

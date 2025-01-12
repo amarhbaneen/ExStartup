@@ -1,4 +1,4 @@
-package com.example.StartupExercise.AuthConfig;
+package com.example.StartupExercise.Authentication;
 
 public class LoginRequest {
     private String username;

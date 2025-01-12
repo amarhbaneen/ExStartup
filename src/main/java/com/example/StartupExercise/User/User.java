@@ -7,86 +7,55 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "\"user\"") // Escaping the table name for H2
-
-
-
+@Table(name = "\"user\"")
 public class User {
     @GeneratedValue
     @Id
     @Column(name = "id")
-
     private Integer id;
-
     private String username;
     @Column(name = "password" , nullable = false,length = 20)
-
     private String password;
     @Column(name = "firstname", nullable = false,length = 20)
-
     private String firstName;
     @Column(name = "surname", nullable = false,length = 20)
-
     private String surName;
     @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false )
     private Role role;
-
-    public User(){}
-
-    public User(Integer id,String  username, String password, String firstName, String surName,Role role ) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.surName = surName;
-        this.role = role;
-
-    }
-
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getSurName() {
         return surName;
     }
-
     public void setSurName(String surName) {
         this.surName = surName;
     }
-
     public Role getRole() {
         return role;
     }
-
     public void setRole(Role role) {
         this.role = role;
     }

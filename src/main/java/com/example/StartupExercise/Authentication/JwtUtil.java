@@ -1,4 +1,4 @@
-package com.example.StartupExercise.AuthConfig;
+package com.example.StartupExercise.Authentication;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

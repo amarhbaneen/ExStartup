@@ -1,5 +1,5 @@
 package com.example.StartupExercise;
-import com.example.StartupExercise.AuthConfig.AuthController;
+import com.example.StartupExercise.Authentication.AuthController;
 import com.example.StartupExercise.User.User;
 import com.example.StartupExercise.User.UserService;
 import org.junit.jupiter.api.BeforeEach;

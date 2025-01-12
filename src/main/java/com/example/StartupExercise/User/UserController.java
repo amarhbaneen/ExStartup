@@ -5,10 +5,11 @@ import com.example.StartupExercise.UserMetricsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -19,20 +20,16 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/users")
 @Tag(name = "User Management", description = "Operations for managing users in the system")
-
 public class UserController {
     @Autowired
     private UserService userService;
     @Autowired
     private UserMetricsService userMetricsService;
-
     /**
-     *
      *   Creates a new User.
      *   @param User The User object to be created.
      *   @return The created User object in a ResponseEntity.
      */
-
     @PostMapping
     @Operation(
             summary = "Create a new user",
@@ -42,7 +39,7 @@ public class UserController {
                     @ApiResponse(responseCode = "400", description = "Invalid user data provided")
             }
     )
-    public ResponseEntity<User> createUser(@RequestBody User User){
+    public ResponseEntity<User> createUser(@Valid @RequestBody User User){
         User CreatedUser =  userService.createUser(User);
         userMetricsService.incrementUserCreated();
         return  ResponseEntity.ok(CreatedUser);
@@ -82,7 +79,7 @@ public class UserController {
                     @ApiResponse(responseCode = "404", description = "User not found")
             }
     )
-    public ResponseEntity<User> getUserById(@PathVariable Integer id) {
+    public ResponseEntity<User> getUserById( @Valid @PathVariable Integer id) {
          Optional<User> user = userService.getUserById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -104,7 +101,7 @@ public class UserController {
                     @ApiResponse(responseCode = "400", description = "Invalid user data provided")
             }
     )
-    public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User user) {
+    public ResponseEntity<User> updateUser(@Valid @PathVariable Integer id, @Valid @RequestBody User user) {
         try {
             User updatedUser = userService.updateUser(id, user);
             userMetricsService.incrementUserUpdated();
@@ -126,7 +123,7 @@ public class UserController {
                     @ApiResponse(responseCode = "404", description = "User not found"),
             }
     )
-    public ResponseEntity<String> deleteUser(@PathVariable Integer id) {
+    public ResponseEntity<String> deleteUser( @Valid @PathVariable Integer id) {
         try {
             userService.deleteUser(id);
             userMetricsService.incrementUserDeleted();
@@ -146,16 +143,13 @@ public class UserController {
      */
 
     @PutMapping("/updatePassword/{username}")
-    public ResponseEntity updatePassword(@PathVariable String username, @RequestBody String newPassword) {
-        String authenticatedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
-        if (!authenticatedUsername.equals(username)) {
-            return ResponseEntity.badRequest().body("You are not authorized to update the password for another user");
-        }
-        User user = userService.getUserByUserName(authenticatedUsername);
-        user.setPassword(newPassword);  // Update the password
-        userService.updateUser(user.getId(), user);  // Save the updated user
+    @PreAuthorize("#username == authentication.name")
+    public ResponseEntity<?> updatePassword(@Valid @PathVariable String username, @Valid @RequestBody String newPassword) {
+        User user = userService.getUserByUserName(username);
+        user.setPassword(newPassword);
+        userService.updateUser(user.getId(), user);
         return ResponseEntity.ok().body("Password updated successfully!");
-
     }
+
 
 }
