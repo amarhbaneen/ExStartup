@@ -1,61 +1,89 @@
 package com.example.StartupExercise.User;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.wildfly.common.annotation.NotNull;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "\"user\"")
+
+@Table(name = "users")
 public class User {
-    @GeneratedValue
+
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer id;
+
+    @Column(name = "username", nullable = false, length = 20)
+    @NotNull
+    @Size(min = 8, max = 20)
     private String username;
-    @Column(name = "password" , nullable = false,length = 20)
+
+    @Column(name = "password", nullable = false, length = 20)
+    @NotNull
+    @Size(min = 8, max = 20)
     private String password;
-    @Column(name = "firstname", nullable = false,length = 20)
+
+    @Column(name = "firstname", nullable = false, length = 20)
+    @NotNull
+    @Size(min = 8, max = 20)
     private String firstName;
-    @Column(name = "surname", nullable = false,length = 20)
+
+    @Column(name = "surname", nullable = false, length = 20)
+    @NotNull
+    @Size(min = 8, max = 20)
     private String surName;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false )
+    @Column(name = "role", nullable = false)
     private Role role;
+
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
+
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getSurName() {
         return surName;
     }
+
     public void setSurName(String surName) {
         this.surName = surName;
     }
+
     public Role getRole() {
         return role;
     }
+
     public void setRole(Role role) {
         this.role = role;
     }

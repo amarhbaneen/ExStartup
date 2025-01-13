@@ -13,17 +13,11 @@ public class UserMetricsService {
     private final Counter userDeletedCounter;
 
     public UserMetricsService(MeterRegistry meterRegistry) {
-        this.userCreatedCounter = Counter.builder("user_created_total")
-                .description("Total number of users created")
-                .register(meterRegistry);
+        this.userCreatedCounter = Counter.builder("user_created_total").description("Total number of users created").register(meterRegistry);
 
-        this.userUpdatedCounter = Counter.builder("user_updated_total")
-                .description("Total number of users updated")
-                .register(meterRegistry);
+        this.userUpdatedCounter = Counter.builder("user_updated_total").description("Total number of users updated").register(meterRegistry);
 
-        this.userDeletedCounter = Counter.builder("user_deleted_total")
-                .description("Total number of users deleted")
-                .register(meterRegistry);
+        this.userDeletedCounter = Counter.builder("user_deleted_total").description("Total number of users deleted").register(meterRegistry);
     }
 
     public void incrementUserCreated() {
