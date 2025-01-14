@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="adding a preAuthorize for UpdatePassword and CreateUser / ( is Admin ? )&#10;creating a CustomExceptionHandler to throw a message for AccessDenied">
+    <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="adding a preAuthorize for UpdatePassword &#10;creating a CustomExceptionHandler to throw a message for AccessDenied">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/db.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/db.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Authentication/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Authentication/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Authentication/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Authentication/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Authentication/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Authentication/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/Configs/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" afterDir="false" />
@@ -35,44 +42,46 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="2qt8mz9rRtcHm0RbWZokwPErJBz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amar/Desktop/StartupExercise/data/db.mv.db&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;a703bb8f7e016277e79cfd824f356c06&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.StartupExerciseApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Amar/Desktop/StartupExercise/data/db.mv.db",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "a703bb8f7e016277e79cfd824f356c06",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.StartupExercise.User" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Amar\Desktop\StartupExercise\data" />
+      <recent name="C:\Users\Admin\OneDrive\Desktop\ExStartup\data" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.StartupExerciseApplication">
@@ -178,9 +187,6 @@
       <workItem from="1736081506277" duration="94000" />
       <workItem from="1736081617742" duration="38000" />
       <workItem from="1736081669121" duration="2105000" />
-      <workItem from="1736537469928" duration="1405000" />
-      <workItem from="1736675410870" duration="5480000" />
-      <workItem from="1736681826156" duration="2068000" />
     </task>
     <task id="LOCAL-00001" summary="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger">
       <option name="closed" value="true" />
@@ -206,23 +212,7 @@
       <option name="project" value="LOCAL" />
       <updated>1736418854927</updated>
     </task>
-    <task id="LOCAL-00004" summary="adding a preAuthorize for UpdatePassword &#10;creating a CustomExceptionHandler to throw a message for AccessDenied">
-      <option name="closed" value="true" />
-      <created>1736422326135</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1736422326135</updated>
-    </task>
-    <task id="LOCAL-00005" summary="adding a preAuthorize for UpdatePassword and CreateUser / ( is Admin ? )&#10;creating a CustomExceptionHandler to throw a message for AccessDenied">
-      <option name="closed" value="true" />
-      <created>1736681668956</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1736681668956</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +223,6 @@
     <MESSAGE value="adding the SwaggerConfig to enable the Authentication in the SwaggerUI" />
     <MESSAGE value="addes the Validation to the UserController and AuthController" />
     <MESSAGE value="adding a preAuthorize for UpdatePassword &#10;creating a CustomExceptionHandler to throw a message for AccessDenied" />
-    <MESSAGE value="adding a preAuthorize for UpdatePassword and CreateUser / ( is Admin ? )&#10;creating a CustomExceptionHandler to throw a message for AccessDenied" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding a preAuthorize for UpdatePassword and CreateUser / ( is Admin ? )&#10;creating a CustomExceptionHandler to throw a message for AccessDenied" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding a preAuthorize for UpdatePassword &#10;creating a CustomExceptionHandler to throw a message for AccessDenied" />
   </component>
 </project>

@@ -9,8 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,25 +35,28 @@ public class UserController {
     /**
      * Creates a new User.
      *
-     * @param User The User object to be created.
+     * @param user The User object to be created.
      * @return The created User object in a ResponseEntity.
      */
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    @Operation(summary = "Create a new user", description = "Creates a new user in the system", responses = {@ApiResponse(responseCode = "201", description = "User created successfully"), @ApiResponse(responseCode = "400", description = "Invalid user data provided")})
-    public ResponseEntity<User> createUser(@Valid @RequestBody User User) {
-        User CreatedUser = userService.createUser(User);
+    @Operation(summary = "Create a new user", description = "Creates a new user in the system",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "User created successfully"),
+                    @ApiResponse(responseCode = "400", description = "Invalid user data provided")
+            })
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+
+        User createdUser = userService.createUser(user);
         userMetricsService.incrementUserCreated();
-        return ResponseEntity.ok(CreatedUser);
-
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
-
     /**
      * Retrieves all users from the database.
      *
      * @return a list of all users.
      */
     @GetMapping
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @Operation(summary = "Get all users", description = "Retrieves a list of all users from the system", responses = {@ApiResponse(responseCode = "200", description = "Successfully fetched all users"), @ApiResponse(responseCode = "500", description = "Internal server error")})
     public ResponseEntity<List<User>> GetAllUsers() {
         List<User> users = userService.getAllUsers();

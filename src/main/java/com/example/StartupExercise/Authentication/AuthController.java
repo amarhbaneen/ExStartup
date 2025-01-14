@@ -34,7 +34,7 @@ public class AuthController {
         if (user == null || !user.getPassword().equals(loginRequest.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
-        String token = JwtUtil.generateToken(user.getUsername());
+        String token = JwtUtil.generateToken(user.getUsername(),user.getRole().toString());
         return ResponseEntity.ok(token);
     }
 }

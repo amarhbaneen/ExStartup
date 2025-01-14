@@ -1,6 +1,8 @@
 package com.example.StartupExercise.Configs;
 
 import com.example.StartupExercise.Authentication.JwtRequestFilter;
+import com.example.StartupExercise.Authentication.JwtUtil;
+import com.example.StartupExercise.User.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -18,13 +20,15 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig {
+    private final UserRepository userRepository;
+    public SecurityConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-/**
- * Spring Security configuration class to enable JWT authentication and method-level security.
- */ public class SecurityConfig {
     @Bean
     public JwtRequestFilter jwtRequestFilter() {
-        return new JwtRequestFilter();  // Instantiate the filter bean
+        return new JwtRequestFilter(userRepository);  // Instantiate the filter bean
     }
 
     @Bean
@@ -32,11 +36,13 @@ import java.util.List;
         http.csrf(AbstractHttpConfigurer::disable);
         http.requiresChannel(c -> c.requestMatchers("/actuator/**").requiresInsecure());
         http.authorizeHttpRequests(request -> {
-            request.requestMatchers("/Auth/login", "/actuator/**", "/swagger-ui/**", "/api-docs/**" ).permitAll();
-            request.anyRequest().authenticated();
+            // Secure endpoints based on role
+            request.requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")  // Protect admin routes
+                    .requestMatchers("/Auth/login", "/actuator/**", "/swagger-ui/**", "/api-docs/**").permitAll()
+                    .anyRequest().authenticated();
         });
         http.addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
-        return http.build(); // Return the configured HttpSecurity
+        return http.build();
     }
 
     @Bean
@@ -51,6 +57,4 @@ import java.util.List;
         source.registerCorsConfiguration("/**", corsConfig);  // Apply CORS config to all paths
         return source;
     }
-
-
 }

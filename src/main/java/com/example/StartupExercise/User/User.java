@@ -1,13 +1,12 @@
 package com.example.StartupExercise.User;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.wildfly.common.annotation.NotNull;
 
 @Data
 @Entity
-
 @Table(name = "users")
 public class User {
 
@@ -40,13 +39,6 @@ public class User {
     @Column(name = "role", nullable = false)
     private Role role;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -86,5 +78,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
