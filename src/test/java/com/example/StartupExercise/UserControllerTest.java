@@ -32,7 +32,13 @@ public class UserControllerTest {
      */
     @BeforeEach
     public void setUp() {
-        testUser = new User(1, "testUser", "password123", "Test", "User", Role.USER);
+
+        testUser = new User();
+        testUser.setId(1);
+        testUser.setPassword("password123");
+        testUser.setFirstName("Test");
+        testUser.setSurName("Test");
+        testUser.setRole(Role.USER);
     }
 
     /**
@@ -90,7 +96,12 @@ public class UserControllerTest {
      */
     @Test
     public void testUpdateUser() {
-        User updatedUser = new User(1, "userTest", "PasswordTest", "UserNameTest", "lastNameTest", Role.USER);
+        User updatedUser = new User();
+        updatedUser.setId(1);
+        updatedUser.setPassword("password123");
+        updatedUser.setFirstName("Test");
+        updatedUser.setSurName("Test");
+        updatedUser.setRole(Role.USER);
         when(userService.updateUser(1, updatedUser)).thenReturn(updatedUser);
         ResponseEntity<User> response = userController.updateUser(1, updatedUser);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -104,7 +115,13 @@ public class UserControllerTest {
      */
     @Test
     public void testUpdateUserNotFound() {
-        User updatedUser = new User(1, "userTest", "PasswordTest", "UserNameTest", "lastNameTest", Role.USER);
+        User updatedUser = new User();
+        updatedUser.setId(1);
+        updatedUser.setPassword("password123");
+        updatedUser.setFirstName("Test");
+        updatedUser.setSurName("Test");
+        updatedUser.setRole(Role.USER);
+        updatedUser.setUsername("UserNameTest");
         when(userService.updateUser(1, updatedUser)).thenThrow(new RuntimeException("User not found"));
         ResponseEntity<User> response = userController.updateUser(1, updatedUser);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
