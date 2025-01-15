@@ -17,6 +17,14 @@
 2. Run app: `mvn spring-boot:run`
 3. Access app: `http://localhost:8080`
 
+## Example Users
+- **Admin**:
+  - **Username**: admin
+  - **Password**: admin
+- **User**:
+  - **Username**: amar
+  - **Password**: 12345678
+
 ## Endpoints
 - `POST /users` : Create user
 - `GET /users` : Get all users (Admin only)
@@ -25,4 +33,5 @@
 - `DELETE /users/delete/{id}` : Delete user
 - `PUT /users/updatePassword/{username}` : Update password
 - `GET /users/getByUserName/{username}` : Get user by username
+
 
