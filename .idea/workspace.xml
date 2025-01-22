@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="fixing the tests">
+    <list default="true" id="6026d8c0-f6e0-4fbc-b304-a7b0af92cad7" name="Changes" comment="uploading the database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StartupExercise/User/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/StartupExercise/User/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +28,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;amarhbaneen&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/amarhbaneen/ExStartup&quot;,
+    &quot;accountId&quot;: &quot;f8734d93-0c5e-4a30-a753-60427eed1604&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -34,6 +50,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2qt8mz9rRtcHm0RbWZokwPErJBz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,10 +69,12 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.StartupExerciseApplication.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Amar/Desktop/StartupExercise/data/db.mv.db&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -159,6 +181,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -175,6 +205,8 @@
       <workItem from="1736081506277" duration="94000" />
       <workItem from="1736081617742" duration="38000" />
       <workItem from="1736081669121" duration="2105000" />
+      <workItem from="1737027028694" duration="121000" />
+      <workItem from="1737538204027" duration="3606000" />
     </task>
     <task id="LOCAL-00001" summary="update the UpdateUser Controller to only update First name and last name , if it needed to update the password it must call UpdatePassword Controller &#10;&#10;added the java doc for Auth Controller &#10;&#10;in the SecurityConfig added the API path for the swagger">
       <option name="closed" value="true" />
@@ -216,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736848520875</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="uploading the database">
+      <option name="closed" value="true" />
+      <created>1737027066994</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737027066994</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +269,7 @@
     <MESSAGE value="adding a preAuthorize for UpdatePassword &#10;creating a CustomExceptionHandler to throw a message for AccessDenied" />
     <MESSAGE value="adding the role inside the JWT token and adding the claims for each user when generate Token" />
     <MESSAGE value="fixing the tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing the tests" />
+    <MESSAGE value="uploading the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="uploading the database" />
   </component>
 </project>

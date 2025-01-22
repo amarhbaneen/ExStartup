@@ -64,8 +64,10 @@ public class UserService {
     public User updateUser(Integer ID , User UpdatedUser){
         return userRepository.findById(ID).map(
                 user -> {
+                    user.setUsername(UpdatedUser.getUsername());
                     user.setFirstName(UpdatedUser.getFirstName());
                     user.setSurName(UpdatedUser.getSurName());
+                    user.setRole(UpdatedUser.getRole());
                     return userRepository.save(user);
                 }
         ).orElseThrow(
